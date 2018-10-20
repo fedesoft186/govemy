@@ -10,9 +10,10 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class RestProvider {
 
-  apiUrl = 'http://localhost:8000/';
+  apiUrl = 'http://afce5f01.ngrok.io/';
   loginService = 'api/login/';
   perfilService = 'perfiles/';
+  cursoService = 'cursos/';
   apiUsuarios = 'usuarios/';
 
   constructor(public http: HttpClient) {
@@ -40,15 +41,23 @@ export class RestProvider {
     }
   getPerfiles() {
       return new Promise(resolve => {
-        this.http.get(this.apiUrl + this.perfilService, {
-          headers: new HttpHeaders().set('Authorization', 'token ' + window.localStorage['token'])
-        }).subscribe(data => {
+        this.http.get(this.apiUrl + this.perfilService).subscribe(data => {
           resolve(data);
         }, err => {
           console.log(err);
         });
       });
     }
+    getCursos() {
+      return new Promise(resolve => {
+        this.http.get(this.apiUrl + this.cursoService).subscribe(data => {
+          resolve(data);
+        }, err => {
+          console.log(err);
+        });
+      });
+    }
+    
     
 
     

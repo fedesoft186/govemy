@@ -20,7 +20,6 @@ class Curso(models.Model):
 class Usuario(models.Model):
     nombre=models.CharField(max_length=200)
     apellido=models.CharField(max_length=200)
-    num_documento=models.IntegerField(max_length=20)
     correo=models.CharField(max_length=200)
     fecha_nacimiento=models.DateField()
     perfil=models.ForeignKey(Perfil, on_delete = models.CASCADE)

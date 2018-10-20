@@ -5,7 +5,7 @@ from aplicacion.serializers import *
 
 from aplicacion.permissions import IsPostOrIsAuthenticated
 from rest_framework import generics
-
+from rest_framework.permissions import AllowAny
 
 @permission_classes((IsPostOrIsAuthenticated, ))
 class UsuarioList(generics.ListCreateAPIView):
@@ -16,8 +16,9 @@ class UsuarioList(generics.ListCreateAPIView):
 class UsuarioDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = UsuarioSerializer
     queryset = Usuario.objects.all()
-    
-class PerfilList(generics.ListCreateAPIView):
+
+@permission_classes((AllowAny, ))
+class PerfilList(generics.ListAPIView):
     serializer_class = PerfilSerializer
     queryset = Perfil.objects.all()
 
@@ -25,8 +26,10 @@ class PerfilList(generics.ListCreateAPIView):
 class PerfilDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PerfilSerializer
     queryset = Perfil.objects.all()
+    
 
-class CursoList(generics.ListCreateAPIView):
+@permission_classes((AllowAny, ))
+class CursoList(generics.ListAPIView):
     serializer_class = CursoSerializer
     queryset = Curso.objects.all()
 

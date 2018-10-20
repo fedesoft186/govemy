@@ -8,47 +8,47 @@
   <ion-navbar>
     <ion-title>Registro</ion-title>
   </ion-navbar>
-  </ion-header>
-  <ion-content padding>
-    <ion-list>
-      <ion-item>
-        <ion-label floating>Nombre</ion-label>
-        <ion-input type="text" [(ngModel)]="nombre"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Apellido</ion-label>
-        <ion-input type="text" [(ngModel)]="apellido"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Correo</ion-label>
-        <ion-input type="email" [(ngModel)]="correo"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label stacked>Fecha de nacimiento</ion-label>
-        <ion-input type="date" [(ngModel)]="fecha_de_nacimiento"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Perfil</ion-label>
-        <ion-textarea type="text" [(ngModel)]="perfil"></ion-textarea>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Num de Documento</ion-label>
-        <ion-textarea type="text" [(ngModel)]="num_documento"></ion-textarea>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Curso</ion-label>
-        <ion-textarea type="text" [(ngModel)]="Curso"></ion-textarea>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Usuario</ion-label>
-        <ion-input type="text" [(ngModel)]="usuario"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Clave</ion-label>
-        <ion-input type="password" [(ngModel)]="clave"></ion-input>
-      </ion-item>
-      <ion-item>
-        <button ion-button block large outline (click)="iniciarRegistro()">Crear cuenta</button>
-      </ion-item>
-    </ion-list>
-  </ion-content>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Nombre</ion-label>
+      <ion-input type="text" [(ngModel)]="nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Apellido</ion-label>
+      <ion-input type="text" [(ngModel)]="apellido"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Num de Documento</ion-label>
+      <ion-input type="text" [(ngModel)]="usuario"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Correo</ion-label>
+      <ion-input type="email" [(ngModel)]="correo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Fecha de nacimiento</ion-label>
+      <ion-input type="date" [(ngModel)]="fecha_de_nacimiento"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Perfil</ion-label>
+      <ion-select okText="Seleccionar" cancelText="Cancelar" [(ngModel)]="perfil">
+        <ion-option *ngFor="let p of perfiles" value="{{ p.id }}">{{ p.nombre }}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Cursos</ion-label>
+      <ion-select okText="Seleccionar" cancelText="Cancelar" [(ngModel)]="Curso">
+        <ion-option *ngFor="let c of cursos" value="{{c.id }}">{{ c.curso }}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Clave</ion-label>
+      <ion-input type="password" [(ngModel)]="clave"></ion-input>
+    </ion-item>
+    <ion-item>
+      <button ion-button block large outline (click)="iniciarRegistro()">Crear cuenta</button>
+    </ion-item>
+  </ion-list>
+</ion-content>

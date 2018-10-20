@@ -9,17 +9,16 @@ class UsuarioSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True,source="user.password")
     nombre = serializers.CharField(required=False)
     apellido = serializers.CharField(required=False)
-    num_documento = serializers.IntegerField(required=False)
     correo = serializers.CharField(required=False)
     fecha_nacimiento = serializers.DateField(required=False)
-    perfil = serializers.CharField(required=False)
-    curso = serializers.CharField(required=False)
+    perfil = serializers.PrimaryKeyRelatedField(queryset=Perfil.objects.all())
+    curso = serializers.PrimaryKeyRelatedField(queryset=Curso.objects.all())
 
 
     # category_name = serializers.RelatedField(source='category',read_only = True)
     class Meta:
         model=User
-        fields=('id', 'username', 'password', 'nombre', 'apellido','num_documento','correo', 'fecha_nacimiento', 'perfil','curso')
+        fields=('id', 'username', 'password', 'nombre', 'apellido','correo', 'fecha_nacimiento', 'perfil','curso')
     def create(self, validated_data, instance = None):
         user_data=validated_data.pop('user')
         user=User.objects.create(**user_data)
