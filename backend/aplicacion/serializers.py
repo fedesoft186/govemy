@@ -12,13 +12,13 @@ class UsuarioSerializer(serializers.ModelSerializer):
     correo = serializers.CharField(required=False)
     fecha_nacimiento = serializers.DateField(required=False)
     perfil = serializers.PrimaryKeyRelatedField(queryset=Perfil.objects.all())
-    curso = serializers.PrimaryKeyRelatedField(queryset=Curso.objects.all())
+   
 
 
     # category_name = serializers.RelatedField(source='category',read_only = True)
     class Meta:
         model=User
-        fields=('id', 'username', 'password', 'nombre', 'apellido','correo', 'fecha_nacimiento', 'perfil','curso')
+        fields=('id', 'username', 'password', 'nombre', 'apellido','correo', 'fecha_nacimiento', 'perfil')
     def create(self, validated_data, instance = None):
         user_data=validated_data.pop('user')
         user=User.objects.create(**user_data)

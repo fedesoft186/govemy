@@ -23,7 +23,6 @@ class Usuario(models.Model):
     correo=models.CharField(max_length=200)
     fecha_nacimiento=models.DateField()
     perfil=models.ForeignKey(Perfil, on_delete = models.CASCADE)
-    curso=models.ForeignKey(Curso, on_delete = models.CASCADE)
     user =models.OneToOneField(User, on_delete=models.CASCADE)
 
     def __str__(self):

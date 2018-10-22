@@ -37,7 +37,7 @@ export class RegistroPage {
 
   ionViewDidLoad() {
     this.consultarperfiles();
-    this.consultarcursos();
+  
   }
   consultarperfiles() {
     this.restProvider.getPerfiles()
@@ -45,12 +45,7 @@ export class RegistroPage {
         this.perfiles = data;
       });
   }
-  consultarcursos() {
-    this.restProvider.getCursos()
-      .then(data => {
-        this.cursos = data;
-      });
-  }
+
   iniciarRegistro() {
     var data = {
       'nombre': this.nombre,

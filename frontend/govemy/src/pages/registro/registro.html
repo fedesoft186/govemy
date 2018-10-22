@@ -38,12 +38,6 @@
       </ion-select>
     </ion-item>
     <ion-item>
-      <ion-label>Cursos</ion-label>
-      <ion-select okText="Seleccionar" cancelText="Cancelar" [(ngModel)]="Curso">
-        <ion-option *ngFor="let c of cursos" value="{{c.id }}">{{ c.curso }}</ion-option>
-      </ion-select>
-    </ion-item>
-    <ion-item>
       <ion-label floating>Clave</ion-label>
       <ion-input type="password" [(ngModel)]="clave"></ion-input>
     </ion-item>

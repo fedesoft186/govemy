@@ -10,7 +10,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class RestProvider {
 
-  apiUrl = 'http://afce5f01.ngrok.io/';
+  apiUrl = 'http://f7aad99b.ngrok.io/';
   loginService = 'api/login/';
   perfilService = 'perfiles/';
   cursoService = 'cursos/';
@@ -48,15 +48,7 @@ export class RestProvider {
         });
       });
     }
-    getCursos() {
-      return new Promise(resolve => {
-        this.http.get(this.apiUrl + this.cursoService).subscribe(data => {
-          resolve(data);
-        }, err => {
-          console.log(err);
-        });
-      });
-    }
+    
     
     
 
