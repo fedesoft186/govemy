@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { PerfilPage } from '../perfil/perfil';
 import { Geolocation } from '@ionic-native/geolocation';
+import { ConfigPerfilPage } from '../config-perfil/config-perfil';
 
 
 @Component({
@@ -39,6 +40,10 @@ export class HomePage {
     console.log('Error getting location', error);
     });
     }
+
+    IrConfPerfil(){
+      this.navCtrl.push(ConfigPerfilPage);
+   }
   
 
 }

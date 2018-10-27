@@ -10,11 +10,12 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class RestProvider {
 
-  apiUrl = 'http://5c82320e.ngrok.io/';
+  apiUrl = 'http://2880f490.ngrok.io/';
   loginService = 'api/login/';
   perfilService = 'perfiles/';
   cursoService = 'cursos/';
   apiUsuarios = 'usuarios/';
+  apiUsuarioActual = 'api/user/';
 
   constructor(public http: HttpClient) {
     console.log('Hello RestProvider Provider');
@@ -27,30 +28,67 @@ export class RestProvider {
         }, (err) => {
           reject(err);
         });
-      });
-    }
+    });
+  }
   registro(data) {
-      return new Promise((resolve, reject) => {
-        this.http.post(this.apiUrl + this.apiUsuarios, data)
-          .subscribe(res => {
-            resolve(res);
-          }, (err) => {
-            reject(err);
-          });
-      });
-    }
-  getPerfiles() {
-      return new Promise(resolve => {
-        this.http.get(this.apiUrl + this.perfilService).subscribe(data => {
-          resolve(data);
-        }, err => {
-          console.log(err);
+    return new Promise((resolve, reject) => {
+      this.http.post(this.apiUrl + this.apiUsuarios, data)
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
         });
+    });
+  }
+  getPerfiles() {
+    return new Promise(resolve => {
+      this.http.get(this.apiUrl + this.perfilService).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
       });
-    }
-    
-    
-    
+    });
+  }
 
-    
+  getUsuarioActual() {
+    return new Promise(resolve => {
+      this.http.get(this.apiUrl + this.apiUsuarioActual, {
+        headers: new HttpHeaders().set('Authorization', 'token ' +
+          window.localStorage['token'])
+      }).subscribe((data: any) => {
+        let usuario = this.getUsuario(data.pk);
+        resolve(usuario);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+  getUsuario(id) {
+    return new Promise(resolve => {
+      this.http.get(this.apiUrl + this.apiUsuarios + '?user_id=' + id, {
+        headers: new HttpHeaders().set('Authorization', 'token ' +
+          window.localStorage['token'])
+      }).subscribe(data => {
+        resolve(data[0]);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
+  ActualizarDatos() {
+    return new Promise((resolve, reject) => {
+      this.http.put(this.apiUrl + this.apiUsuarioActual, {
+        headers: new HttpHeaders().set('Authorization', 'token ' +
+          window.localStorage['token'])
+      }) .subscribe(res => {
+        resolve(res);
+      }, (err) => {
+        reject(err);
+      });
+    });
+  }
+
+
+
 }

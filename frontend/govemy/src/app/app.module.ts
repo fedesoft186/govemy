@@ -12,6 +12,7 @@ import { RestProvider } from '../providers/rest/rest';
 import { PerfilPage } from '../pages/perfil/perfil';
 import { RegistroPage } from '../pages/registro/registro';
 import { Geolocation } from '@ionic-native/geolocation';
+import { ConfigPerfilPage } from '../pages/config-perfil/config-perfil';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     HomePage,
     LoginPage,
     PerfilPage,
-    RegistroPage
+    RegistroPage,
+    ConfigPerfilPage
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     HomePage,
     LoginPage,
     PerfilPage,
-    RegistroPage
+    RegistroPage,
+    ConfigPerfilPage
   ],
   providers: [
     StatusBar,

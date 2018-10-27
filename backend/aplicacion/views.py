@@ -1,5 +1,5 @@
 from rest_framework.decorators import permission_classes
-
+from django_filters.rest_framework import DjangoFilterBackend
 from aplicacion.models import *
 from aplicacion.serializers import *
 
@@ -11,6 +11,8 @@ from rest_framework.permissions import AllowAny
 class UsuarioList(generics.ListCreateAPIView):
     serializer_class = UsuarioSerializer
     queryset = Usuario.objects.all()
+    filter_backends = (DjangoFilterBackend,)
+    filter_fields = ('user_id',)
 
 
 class UsuarioDetail(generics.RetrieveUpdateDestroyAPIView):
