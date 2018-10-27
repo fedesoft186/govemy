@@ -1,16 +1,68 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+      <ion-toolbar style="border-top:2%;">
+          <ion-buttons start>
+            <button  ion-button icon-only outline>
+              <ion-icon name="contact"></ion-icon>
+            </button>
+          </ion-buttons>
+          <ion-title>Outline</ion-title>
+          <ion-buttons end>
+            <button  ion-button icon-end outline color="secondary">
+              Help
+              <ion-icon name="help-circle"></ion-icon>
+            </button>
+          </ion-buttons>
+        </ion-toolbar>
+  <ion-toolbar>
+    <div>
+      <ion-segment [(ngModel)]="Home" color="primary">
+          <ion-segment-button value="noticias">
+            Noticias
+          </ion-segment-button>
+          <ion-segment-button value="inicio">
+            Inicio
+          </ion-segment-button>
+          <ion-segment-button value="cursos">
+            Cursos
+          </ion-segment-button>
+        </ion-segment>
+    </div>
+
+    </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <div [ngSwitch]="Home">
+  <ion-slides *ngSwitchCase="'inicio'">
+    <ion-slide>
+      <h1>Slide 1</h1>
+    </ion-slide>
+    <ion-slide>
+      <h1>Slide 2</h1>
+    </ion-slide>
+    <ion-slide>
+      <h1>Slide 3</h1>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-list *ngSwitchCase="'noticias'">
+      <ion-item>
+        <ion-thumbnail item-start>
+            <h1>1.</h1>
+        </ion-thumbnail>
+        <h2>Ruby</h2>
+      </ion-item>
+    </ion-list>
+  
+    <ion-list *ngSwitchCase="'cursos'">
+      <ion-item>
+        <ion-thumbnail item-start>
+            <h1>1.</h1>
+        </ion-thumbnail>
+        <h2>Luna</h2>
+      </ion-item>
+    </ion-list>
+</div>
   <button ion-button full (click)="cerrarSesion()" >cerrar sesion</button>
   <button ion-button full (click)="mostrarPerfiles()" >Perfiles</button>
 </ion-content>

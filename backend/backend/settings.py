@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*',]
 
+MEDIA_ROOT = 'C:\\Users\\308\\govemy\\backend\\media'
+MEDIA_URL = '/media/'
 
 # Application definition
 

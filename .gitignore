@@ -1,2 +1,9 @@
 env305/
 env308/
+frontend/govemy/www/
+frontend/govemy/plugins/
+frontend/govemy/platforms/
+*.ts
+frontend/govemy/node_modules/zone.js/dist/zone-patch-jsonp.min.js
+frontend/govemy/node_modules/
+frontend/govemy/.sourcemaps/

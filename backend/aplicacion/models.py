@@ -11,7 +11,7 @@ class Perfil(models.Model):
         return self.nombre
 
 class Curso(models.Model):
-    curso = models.IntegerField(max_length=10)
+    curso = models.IntegerField(default=10)
     
 
     def __str__(self):
@@ -22,6 +22,9 @@ class Usuario(models.Model):
     apellido=models.CharField(max_length=200)
     correo=models.CharField(max_length=200)
     fecha_nacimiento=models.DateField()
+    descripcionEstudiante=models.CharField(max_length=500, null=True)
+    foto = models.ImageField(upload_to='img/fotosapp/', blank=True, null=True)
+    formacion=models.CharField(max_length=200, null=True)
     perfil=models.ForeignKey(Perfil, on_delete = models.CASCADE)
     user =models.OneToOneField(User, on_delete=models.CASCADE)
 
