@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RestProvider } from '../../providers/rest/rest';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 import { HomePage } from '../home/home';
 import { RegistroPage } from '../registro/registro';
 import { AlertController } from 'ionic-angular';
@@ -30,11 +31,22 @@ export class ConfigPerfilPage {
   perfiles: any;
   usuario: any;
   clave: String;
+  claveNueva: String;
   id: Number;
+  imagen: any;
+
+  options: CameraOptions = {
+    quality: 70,
+    targetWidth: 500,
+    targetHeight: 500,
+    destinationType: this.camera.DestinationType.DATA_URL,
+    encodingType: this.camera.EncodingType.JPEG,
+    mediaType: this.camera.MediaType.PICTURE
+    }
   
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private camera: Camera, public restProvider: RestProvider) {
   }
 
   ionViewDidLoad() {
@@ -82,4 +94,29 @@ export class ConfigPerfilPage {
         console.log(err);
       });
 }
+
+cambiarContra() {
+    var data = {
+    'new_password1': this.clave,
+    'new_password2': this.claveNueva,
+    };
+    this.restProvider.CambiarContra(data).then((response: any)=> {
+      console.log(response);
+      }
+
+
+    , (err) => {
+      console.log(err);
+    });
+}
+
+tomarFoto() {
+    this.camera.getPicture(this.options).then((imageData) => {
+    // imageData is either a base64 encoded string or a file URI
+    // If it's base64 (DATA_URL):
+    this.imagen = 'data:image/jpeg;base64,' + imageData;
+    }, (err) => {
+    // Handle error
+    });
+    }
 }

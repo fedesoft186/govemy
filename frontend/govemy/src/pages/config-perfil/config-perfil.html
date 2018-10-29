@@ -15,7 +15,19 @@
 
 <ion-content padding>
   <ion-list>
-      <h2>Configurar perfil</h2>
+    <h2>Configurar perfil</h2>
+    
+    <ion-item>
+      <p><img width="80%" src="{{ imagen }}" /></p>
+    </ion-item>
+    <ion-item>
+      <button ion-button block large outline (click)="tomarFoto()">Tomar
+        Foto</button>
+    </ion-item>
+    <ion-item>
+      <button ion-button block large outline (click)="subirFoto()">Subir
+        Foto</button>
+    </ion-item>
     <ion-item>
       <ion-label floating>Nombre</ion-label>
       <ion-input type="text" [(ngModel)]="nombre"></ion-input>
@@ -43,20 +55,20 @@
       <ion-label floating>Formacion academica</ion-label>
       <ion-input type="text" [(ngModel)]="formacion"></ion-input>
     </ion-item>
-        <ion-item>
-          <button ion-button block large outline (click)="actualizarDatos()">Actualizar</button>
-        </ion-item>
+    <ion-item>
+      <button ion-button block large outline (click)="actualizarDatos()">Actualizar</button>
+    </ion-item>
     <h2>Cambiar contraseña</h2>
     <ion-item>
-        <ion-label floating>Clave antigua</ion-label>
-        <ion-input type="password" [(ngModel)]="clave"></ion-input>
-      </ion-item>
+      <ion-label floating>Clave nueva</ion-label>
+      <ion-input type="password" [(ngModel)]="clave"></ion-input>
+    </ion-item>
     <ion-item>
-        <ion-label floating>Clave nueva</ion-label>
-        <ion-input type="password" [(ngModel)]="clave"></ion-input>
-      </ion-item>
+      <ion-label floating>Confirme su clave</ion-label>
+      <ion-input type="password" [(ngModel)]="claveNueva"></ion-input>
+    </ion-item>
     <ion-item>
-      <button ion-button block large outline>Cambiar contraseña</button>
+      <button ion-button block large outline (click)="cambiarContra()">Cambiar contraseña</button>
     </ion-item>
     <ion-item>
     </ion-item>

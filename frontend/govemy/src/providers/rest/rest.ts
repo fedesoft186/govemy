@@ -16,6 +16,7 @@ export class RestProvider {
   cursoService = 'cursos/';
   apiUsuarios = 'usuarios/';
   apiUsuarioActual = 'api/user/';
+  apiCambiarContra = 'api/password/change/'
 
   constructor(public http: HttpClient) {
     console.log('Hello RestProvider Provider');
@@ -79,6 +80,19 @@ export class RestProvider {
   ActualizarDatos(data) {
     return new Promise((resolve, reject) => {
       this.http.patch(this.apiUrl + this.apiUsuarios + data.id + "/", data, {
+        headers: new HttpHeaders().set('Authorization', 'token ' +
+          window.localStorage['token'])
+      }) .subscribe(res => {
+        resolve(res);
+      }, (err) => {
+        reject(err);
+      });
+    });
+  }
+
+  CambiarContra(data) {
+    return new Promise((resolve, reject) => {
+      this.http.post(this.apiUrl + this.apiCambiarContra, data, {
         headers: new HttpHeaders().set('Authorization', 'token ' +
           window.localStorage['token'])
       }) .subscribe(res => {

@@ -1,5 +1,5 @@
 from aplicacion.models import *
-
+from drf_extra_fields.fields import Base64ImageField
 from django.contrib.auth.models import User
 from rest_framework import serializers
 
@@ -15,6 +15,7 @@ class UsuarioSerializer(serializers.ModelSerializer):
     foto = serializers.CharField(required=False)
     formacion=serializers.CharField(required=False)
     perfil = serializers.PrimaryKeyRelatedField(queryset=Perfil.objects.all())
+    foto = Base64ImageField()
    
 
 

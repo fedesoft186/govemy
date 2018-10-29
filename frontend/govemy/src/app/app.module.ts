@@ -13,6 +13,7 @@ import { PerfilPage } from '../pages/perfil/perfil';
 import { RegistroPage } from '../pages/registro/registro';
 import { Geolocation } from '@ionic-native/geolocation';
 import { ConfigPerfilPage } from '../pages/config-perfil/config-perfil';
+import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ConfigPerfilPage } from '../pages/config-perfil/config-perfil';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HttpClient,
     RestProvider,
-    Geolocation
+    Geolocation,
+    Camera
     
   ]
 })
