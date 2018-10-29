@@ -26,7 +26,7 @@
     </ion-item>
     <ion-item>
       <ion-label floating>Acerca de ti</ion-label>
-      <ion-textarea [(ngModel)]="descrpUser"></ion-textarea>
+      <ion-textarea [(ngModel)]="descripcion"></ion-textarea>
     </ion-item>
     <ion-item>
       <ion-label floating>Correo</ion-label>
@@ -44,7 +44,7 @@
       <ion-input type="text" [(ngModel)]="formacion"></ion-input>
     </ion-item>
         <ion-item>
-          <button ion-button block large outline>Actualizar</button>
+          <button ion-button block large outline (click)="actualizarDatos()">Actualizar</button>
         </ion-item>
     <h2>Cambiar contraseña</h2>
     <ion-item>
