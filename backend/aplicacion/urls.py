@@ -12,4 +12,6 @@ urlpatterns = [
     url(r'^temas/(?P<pk>[0-9]+)/$', views.TemaDetail.as_view()),
     url(r'^materias/$', views.MateriaList.as_view()),
     url(r'^materias/(?P<pk>[0-9]+)/$', views.MateriaDetail.as_view()),
+   # url(r'^contenidos/$', views.contenidoList.as_view()),
+    #url(r'^contenidos/(?P<pk>[0-9]+)/$', views.contenidoDetail.as_view()),
 ]

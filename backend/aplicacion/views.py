@@ -57,3 +57,15 @@ class TemaList(generics.ListCreateAPIView):
 class TemaDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = TemaSerializer
     queryset = Tema.objects.all()
+
+class ContenidoList(generics.ListCreateAPIView):
+    serializer_class = ContenidoSerializer
+    queryset = Contenido.objects.all()
+
+
+class ContenidoDetail(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = ContenidoSerializer
+    queryset = Contenido.objects.all()
+    #filter_backends = (DjangoFilterBackend,)
+   # filter_fields = ('contenido_tema__materia__curso',)
+    #?contenido_tema__materia__curso=1 en el rest ts

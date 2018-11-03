@@ -10,7 +10,11 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class RestProvider {
 
+<<<<<<< HEAD
   apiUrl = 'http://1730434f.ngrok.io/';
+=======
+  apiUrl = 'http://db339de4.ngrok.io/';
+>>>>>>> 02bf65fe113a52abda5e82231a6b974f7f0699d3
   loginService = 'api/login/';
   perfilService = 'perfiles/';
   cursoService = 'cursos/';
@@ -50,6 +54,15 @@ export class RestProvider {
       });
     });
   }
+  getCursos() {
+    return new Promise(resolve => {
+      this.http.get(this.apiUrl + this.cursoService).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
 
   getUsuarioActual() {
     return new Promise(resolve => {
@@ -79,6 +92,7 @@ export class RestProvider {
 
   ActualizarDatos(data) {
     return new Promise((resolve, reject) => {
+      console.log("123");
       this.http.patch(this.apiUrl + this.apiUsuarios + data.id + "/", data, {
         headers: new HttpHeaders().set('Authorization', 'token ' +
           window.localStorage['token'])

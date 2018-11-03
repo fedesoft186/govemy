@@ -2,8 +2,11 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { PerfilPage } from '../perfil/perfil';
+
 import { Geolocation } from '@ionic-native/geolocation';
 import { ConfigPerfilPage } from '../config-perfil/config-perfil';
+import { RestProvider } from '../../providers/rest/rest';
+import { CursosPage } from '../cursos/cursos';
 
 
 @Component({
@@ -11,12 +14,13 @@ import { ConfigPerfilPage } from '../config-perfil/config-perfil';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  
 
   public category: string = 'inicio';
   public categories: Array<string> = ['noticias', 'inicio', 'cursos']
 
-  constructor(public navCtrl: NavController, public geolocation: Geolocation) {
-
+  constructor(public navCtrl: NavController, public geolocation: Geolocation, public restProvider: RestProvider) {
+ 
   }
   ionViewDidLoad(){
     this.obtenerPosicion();
@@ -36,6 +40,14 @@ export class HomePage {
     this.navCtrl.push(PerfilPage);
 
   }
+  mostrarCursos() {
+    
+
+    this.navCtrl.push(CursosPage);
+
+  }
+
+
   obtenerPosicion() {
     this.geolocation.getCurrentPosition().then((coordenadas) => {
     console.log(coordenadas);

@@ -48,4 +48,7 @@ class TemaSerializer(serializers.ModelSerializer):
     class Meta:
         model=Tema
         fields=('id','materia','tema')
-
+class ContenidoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Contenido
+        fields=('id','nombre','descripcion','videos','guias','contenido','usuario')
