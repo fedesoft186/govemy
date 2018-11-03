@@ -1,5 +1,15 @@
 <ion-header>
-      <ion-toolbar style="border-top:2%;">
+      <ion-toolbar style="border-top:2%; padding-top: 8%;">
+          <ion-menu [content]="mycontent">
+              <ion-content>
+                <ion-list>
+                  <ion-item menuClose detail-none>Close Menu</ion-item>
+                </ion-list>
+              </ion-content>
+            </ion-menu>
+          <button ion-button menuToggle left>
+              <ion-icon name="menu"></ion-icon>
+            </button>
           <ion-buttons start>
             <button  ion-button icon-only outline (click)="IrConfPerfil()">
               <ion-icon name="contact"></ion-icon>
@@ -15,7 +25,7 @@
         </ion-toolbar>
   <ion-toolbar>
     <div>
-      <ion-segment [(ngModel)]="Home" color="primary">
+      <ion-segment [(ngModel)]="category" color="primary">
           <ion-segment-button value="noticias">
             Noticias
           </ion-segment-button>
@@ -32,18 +42,18 @@
 </ion-header>
 
 <ion-content padding>
-  <div [ngSwitch]="Home">
-  <ion-slides *ngSwitchCase="'inicio'">
-    <ion-slide>
-      <h1>Slide 1</h1>
-    </ion-slide>
-    <ion-slide>
-      <h1>Slide 2</h1>
-    </ion-slide>
-    <ion-slide>
-      <h1>Slide 3</h1>
-    </ion-slide>
-  </ion-slides>
+  <div [ngSwitch]="category" swipeSegment [tabsList]="categories" [(currentTab)]="category" (tabChanged)="onTabChanged($event)" class="swipe-area">
+  
+      <ion-list *ngSwitchCase="'inicio'">
+          <ion-item>
+            <ion-thumbnail item-start>
+                <h1>1.</h1>
+            </ion-thumbnail>
+          
+            <h2>Ruby & Zafiro</h2>
+            
+          </ion-item>
+        </ion-list>
 
   <ion-list *ngSwitchCase="'noticias'">
       <ion-item>

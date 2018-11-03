@@ -112,6 +112,15 @@ export class LoginPage {
         window.localStorage['token'] = data.key;
         this.navCtrl.setRoot(HomePage);
 
+      }, err => {
+        const alert = this.alertCtrl.create({
+          title: 'GOVEMY',
+          subTitle: 'Datos invalidos!',
+          buttons: ['OK']
+  
+        });
+        alert.present();
+        return false;
       });
 
 
@@ -125,4 +134,6 @@ export class LoginPage {
 
 
   }
+
+  
 }

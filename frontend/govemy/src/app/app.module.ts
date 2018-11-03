@@ -14,6 +14,7 @@ import { RegistroPage } from '../pages/registro/registro';
 import { Geolocation } from '@ionic-native/geolocation';
 import { ConfigPerfilPage } from '../pages/config-perfil/config-perfil';
 import { Camera } from '@ionic-native/camera';
+import { SwipeSegmentDirective } from '../directives/SwipeSegmentDirective';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { Camera } from '@ionic-native/camera';
     LoginPage,
     PerfilPage,
     RegistroPage,
-    ConfigPerfilPage
+    ConfigPerfilPage,
+    SwipeSegmentDirective
   ],
   imports: [
     BrowserModule,

@@ -12,6 +12,9 @@ import { ConfigPerfilPage } from '../config-perfil/config-perfil';
 })
 export class HomePage {
 
+  public category: string = 'inicio';
+  public categories: Array<string> = ['noticias', 'inicio', 'cursos']
+
   constructor(public navCtrl: NavController, public geolocation: Geolocation) {
 
   }
@@ -44,6 +47,10 @@ export class HomePage {
     IrConfPerfil(){
       this.navCtrl.push(ConfigPerfilPage);
    }
+
+   onTabChanged(tabName) {
+    this.category = tabName;
+  }
   
 
 }
