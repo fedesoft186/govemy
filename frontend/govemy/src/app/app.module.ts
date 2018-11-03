@@ -14,12 +14,9 @@ import { RegistroPage } from '../pages/registro/registro';
 import { Geolocation } from '@ionic-native/geolocation';
 import { ConfigPerfilPage } from '../pages/config-perfil/config-perfil';
 import { Camera } from '@ionic-native/camera';
-<<<<<<< HEAD
 import { SwipeSegmentDirective } from '../directives/SwipeSegmentDirective';
-=======
 import { CursosPage } from '../pages/cursos/cursos';
 import { CursoDetallePage } from '../pages/curso-detalle/curso-detalle';
->>>>>>> 02bf65fe113a52abda5e82231a6b974f7f0699d3
 
 @NgModule({
   declarations: [
@@ -29,12 +26,9 @@ import { CursoDetallePage } from '../pages/curso-detalle/curso-detalle';
     PerfilPage,
     RegistroPage,
     ConfigPerfilPage,
-<<<<<<< HEAD
-    SwipeSegmentDirective
-=======
+    SwipeSegmentDirective,
     CursosPage,
     CursoDetallePage
->>>>>>> 02bf65fe113a52abda5e82231a6b974f7f0699d3
   ],
   imports: [
     BrowserModule,
