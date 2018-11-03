@@ -14,6 +14,8 @@ import { RegistroPage } from '../pages/registro/registro';
 import { Geolocation } from '@ionic-native/geolocation';
 import { ConfigPerfilPage } from '../pages/config-perfil/config-perfil';
 import { Camera } from '@ionic-native/camera';
+import { CursosPage } from '../pages/cursos/cursos';
+import { CursoDetallePage } from '../pages/curso-detalle/curso-detalle';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { Camera } from '@ionic-native/camera';
     LoginPage,
     PerfilPage,
     RegistroPage,
-    ConfigPerfilPage
+    ConfigPerfilPage,
+    CursosPage,
+    CursoDetallePage
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,9 @@ import { Camera } from '@ionic-native/camera';
     LoginPage,
     PerfilPage,
     RegistroPage,
-    ConfigPerfilPage
+    ConfigPerfilPage,
+    CursosPage, 
+    CursoDetallePage
   ],
   providers: [
     StatusBar,
